@@ -7,7 +7,7 @@
     <title>reveal.js</title>
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/theme/night.css">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -20,14 +20,40 @@
         link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
     </script>
+        <style>
+        .slides .header {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+        }
+
+        .slides .footer {
+            position: absolute;
+            bottom: 0%;
+            left: -25%;
+            font-size: 50%;
+        }
+    </style>
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
+        <!--<div class="footer">
+            <p>https://goo.gl/RZWX4F</p>
+        </div>-->
         <section>
             <h1>JavaScript State Management with Redux</h1>
             <br>
             <h5>Sebastian Seitner</h5>
+        </section>
+        <section>
+            <div style="display: block;">
+                <div style="display: block"><p>Follow my slides on your device: </p>
+                    <a href="https://goo.gl/RZWX4F">https://goo.gl/RZWX4F</a></div>
+                <div style="display: block">
+                    <img src="assets/qrcode.png" style="width: auto; height:550px;">
+                </div>
+            </div>
         </section>
         <section>
             <section>
@@ -58,6 +84,10 @@
 
                     </ul>
                 </div>
+                <aside class="notes">
+                    Just examples. Not that important.
+                    Many Different things ==> complexity
+                </aside>
             </section>
         </section>
         <section>
@@ -71,11 +101,22 @@
                     <li>Complex state changes are hard to reason about</li>
                     <li>Bugs may be hard to reproduce</li>
                 </ul>
+                <aside class="notes">
+                    Many Components accessing the same state
+                    and Changing it
+                    Imagine people working on docs in same folder.
+                    Hard to know who changed what
+                </aside>
             </section>
             <section>
                 <h3>Shared <span class="fragment highlight-red">mutable</span> state is evil</h3>
             </section>
+            <aside class="notes">
+                It gets hard to trace errors if there are many dependencies between components.
+                Hard to trace who made an error
+            </aside>
         </section>
+        <!--
         <section>
             <section>
                 <h1>Enemies of predictable State Management</h1>
@@ -95,8 +136,231 @@
                     Abramov Quote: In separation they can be great. Together they create a mess
                 </aside>
             </section>
+        </section>
+        -->
+        <section>
             <section>
-
+                <h1>Redux</h1>
+                <p>A predictable state container for JavaScript applications</p>
+                <aside class="notes">
+                    Try to explain with a real world analogy.
+                    Address also none programmers
+                </aside>
+            </section>
+            <section>
+                <h1>Core Principles</h1>
+                <div style="display: inline-block">
+                    <ul>
+                        <li>Single Source of Truth</li>
+                        <li>State is read only</li>
+                        <li>Changes are made with pure functions (called Reducers)</li>
+                    </ul>
+                </div>
+                <div style="display: inline-block">
+                    <img class="fragment fade-in" src="assets/library_2.jpg" width="270" height="180"/>
+                    <img class="fragment fade-in" src="assets/read-book.jpg" width="150" height="150"/>
+                    <img class="fragment fade-in" src="assets/librarian.jpg" width="270" height="180"/>
+                </div>
+                <aside class="notes">
+                    <ul>
+                        <li>Single Source of Truth => Sort of "Library" where all information is kept.</li>
+                        <li>Read Only => can't go directly to the library and change sth</li>
+                        <li>Pure Functions => Workers can only do specific things, know how to handle
+                            actions/instructions
+                        </li>
+                    </ul>
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Store</h1>
+            </section>
+            <section>
+                <p>The store is a single JavaScript Object which represents the state tree</p>
+                <div class="fragment fade-in">
+                    <p>The store is our "Library" where all the necessary information is stored</p>
+                    <img src="assets/library_2.jpg" width="270" height="180"/>
+                </div>
+            </section>
+            <section>
+                <p>The store is our Single Source of Truth</p>
+                <p>Every state change goes through it</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Actions</h1>
+            </section>
+            <section>
+                <p>Actions specify that something happened</p>
+                <p class="fragment fade-down">Actions are like instructions for workers in our "Library"</p>
+            </section>
+            <section data-transition="fade">
+                <pre>
+                    <code>
+                    {
+                        type: "ADD_STH_COOL"
+                        payload: "My extra cool stuff"
+                    }
+                    </code>
+                </pre>
+                <aside class="notes">
+                    Actions are just plain Javascript objects.
+                    'type' property is mandatory!
+                </aside>
+            </section>
+            <section data-background-image="assets/envelope-icon-open.png"
+                     data-background-size="auto 90%"
+                     data-background-transition="fade" data-transition="fade">
+                <pre style="box-shadow: none;">
+                    <code>
+                    {
+                        type: "ADD_AWESOME_STUFF"
+                        payload: "My extra cool stuff"
+                    }
+                    </code>
+                </pre>
+                <aside class="notes">
+                    for visualization purposes
+                </aside>
+            </section>
+            <section data-background-image="assets/envelope-icon-closed-labeled.png"
+                     data-background-size="auto 70%"
+                     data-background-transition="zoom">
+            </section>
+            <section>
+                <div style="display: inline"><img src="assets/envelope-icon-closed-labeled.png" width="270px"
+                                                  style="border:none;"></div>
+                <div style="display: inline"><h1>=></h1></div>
+                <div style="display: inline"><img src="assets/librarian.jpg" width="270px" style="border:none;"></div>
+            </section>
+        </section>
+        <section>
+            <section><h1>Reducers</h1></section>
+            <section>
+                <p>Reducers compute new state based on actions</p>
+                <div class="fragment fade-in">
+                    <p>Reducers are the workers/staff in our "Library"</p>
+                    <img src="assets/librarian.jpg" width="270px" style="border:none;">
+                </div>
+                <aside class="notes">
+                    Only part of the app that can "change" state
+                </aside>
+            </section>
+            <section>
+                <div style="display: flex">
+                    <div style="float: left; width: 25%;">
+                        <img class="fragment fade-right" data-fragment-index="1" src="assets/ordner-blau.jpg"
+                             height="200px" width="200px">
+                    </div>
+                    <div style="display: inline-block; width: 50%;">
+                        <p>Reducers need to know</p>
+                        <ul style="margin-left: 60px">
+                            <li class="fragment fade-up" data-fragment-index="1">The current state</li>
+                            <li class="fragment fade-up" data-fragment-index="2">The action to carry out</li>
+                        </ul>
+                    </div>
+                    <div style="float: right; width: 25%;">
+                        <img class="fragment fade-left" data-fragment-index="2"
+                             src="assets/envelope-icon-closed-labeled.png"
+                             style="width: 60%; border: none; margin-top: 50px">
+                    </div>
+                </div>
+                <pre class="fragment" data-fragment-index="3">
+                    <code>
+                        (state, action) => state
+                    </code>
+                </pre>
+                <p class="fragment" data-fragment-index="3">They don't mutate the state. They create a new one!</p>
+            </section>
+            <section>
+                <!-- TODO picture of folder (of awesome stuff), copy machine and the librarian and folder with other color afterwards-->
+                <!-- Explain how reducers change the state without mutating it -->
+                <div style="display:flex;">
+                    <div style="order: 1" class="fragment fade-out" data-fragment-index="2">
+                        <img src="assets/envelope-icon-closed-labeled.png" width="100px">
+                        <img src="assets/library_2.jpg" height="150px" style="margin-top: 85px">
+                    </div>
+                    <div style="order: 2" class="fragment fade-in" data-fragment-index="1">
+                        <img src="assets/arrow.png" class="fragment fade-out" data-fragment-index="2" height="100px"
+                             width="150px"
+                             style="margin-top: 120px; border: none;">
+                    </div>
+                    <div style="order: 3" class="fragment fade-in" data-fragment-index="1">
+                        <img class="fragment fade-out" data-fragment-index="2" src="assets/librarian.jpg" width="200px">
+                        <img src="assets/ordner-blau.jpg" height="200px" width="200px">
+                    </div>
+                    <div class="fragment fade-in" data-fragment-index="2" style="order: 4">
+                        <img src="assets/arrow.png" height="100px" width="150px"
+                             style="margin-top: 235px; border: none;">
+                    </div>
+                    <div class="fragment fade-in" data-fragment-index="2" style="order: 5">
+                        <img src="assets/librarian.jpg" class="fragment fade-out" data-fragment-index="3" width="200px">
+                        <img src="assets/copy-machine.jpg" width="200px">
+                    </div>
+                    <div class="fragment fade-in" data-fragment-index="3" style="order: 6">
+                        <img src="assets/arrow.png" height="100px" width="150px"
+                             style="margin-top: 235px; border: none;">
+                    </div>
+                    <div class="fragment fade-in" data-fragment-index="3" style="order: 7">
+                        <img src="assets/librarian.jpg" width="200px">
+                        <img src="assets/ordner-gruen.jpg" height="200px" width="200px">
+                    </div>
+                </div>
+                <aside class="notes">
+                    reducers are like paranoid workers. They make a copy before they change anything.
+                    You would think: this is not performant. But it is. Structural sharing. Won't go into details
+                    (questions later)
+                </aside>
+            </section>
+            <!--<section>
+                <p>Reducers are pure functions</p>
+                <p>They give the same output everytime they are given the same input</p>
+                <aside class="notes">
+                    No side effects (e.g: calling an API)
+                    No Mutations
+                    Just calculations
+                </aside>
+            </section>
+            <section>
+                <pre>
+                    <code>
+    function awesomeStuffReducer(state=[], action){
+        switch(action.type){
+            case 'ADD_AWESOME_STUFF':
+                return [...state.awesomeStuff, action.payload];
+            default:
+                return state;
+        }
+    }
+                    </code>
+                </pre>
+            </section>-->
+        </section>
+        <section>
+            <section>
+                <h1>Data Flow</h1>
+            </section>
+            <section>
+                <img src="assets/redux-flow.jpg">
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Why Redux?</h1>
+                <ul>
+                    <li>Easy to reason about data flow</li>
+                    <li>Errors/bugs are easy to trace</li>
+                    <li>State is reproducable by "replaying" actions</li>
+                    <li>Performance Benefits</li>
+                    <li>Cool developer tools
+                    </li>
+                    <ul>
+                        <li>Time Travel Debugging</li>
+                        <li>Hot Reloading</li>
+                    </ul>
+                </ul>
             </section>
         </section>
     </div>
