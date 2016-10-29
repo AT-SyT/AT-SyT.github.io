@@ -41,12 +41,12 @@
         <!--<div class="footer">
             <p>https://goo.gl/RZWX4F</p>
         </div>-->
-        <section>
+        <section data-transition="convex">
             <h1>JavaScript State Management with Redux</h1>
             <br>
             <h5>Sebastian Seitner</h5>
         </section>
-        <section>
+        <section data-transition="convex">
             <div style="display: block;">
                 <div style="display: block"><p>Follow my slides on your device: </p>
                     <a href="https://goo.gl/RZWX4F">https://goo.gl/RZWX4F</a></div>
@@ -55,11 +55,11 @@
                 </div>
             </div>
         </section>
-        <section>
-            <section>
+        <section data-transition="convex">
+            <section data-transition="convex">
                 <h1>What is state?</h1>
             </section>
-            <section>
+            <section data-transition="convex">
                 <h1>State</h1>
                 <div style="display:inline-flex">
                     <ul>
@@ -90,11 +90,11 @@
                 </aside>
             </section>
         </section>
-        <section>
-            <section>
+        <section data-transition="convex">
+            <section data-transition="convex">
                 <h1>What is the problem?</h1>
             </section>
-            <section>
+            <section data-transition="convex">
                 <h2>Managing ever-changing state is hard</h2>
                 <ul>
                     <li>One change could lead to several others</li>
@@ -108,7 +108,7 @@
                     Hard to know who changed what
                 </aside>
             </section>
-            <section>
+            <section data-transition="convex">
                 <h3>Shared <span class="fragment highlight-red">mutable</span> state is evil</h3>
             </section>
             <aside class="notes">
@@ -138,8 +138,8 @@
             </section>
         </section>
         -->
-        <section>
-            <section>
+        <section data-transition="convex">
+            <section data-transition="convex">
                 <h1>Redux</h1>
                 <p>A predictable state container for JavaScript applications</p>
                 <aside class="notes">
@@ -147,7 +147,7 @@
                     Address also none programmers
                 </aside>
             </section>
-            <section>
+            <section data-transition="convex">
                 <h1>Core Principles</h1>
                 <div style="display: inline-block">
                     <ul>
@@ -172,8 +172,8 @@
                 </aside>
             </section>
         </section>
-        <section>
-            <section>
+        <section data-transition="convex">
+            <section data-transition="convex">
                 <h1>Store</h1>
             </section>
             <section>
@@ -183,20 +183,20 @@
                     <img src="assets/library_2.jpg" width="270" height="180"/>
                 </div>
             </section>
-            <section>
+            <section data-transition="convex">
                 <p>The store is our Single Source of Truth</p>
                 <p>Every state change goes through it</p>
             </section>
         </section>
-        <section>
-            <section>
+        <section data-transition="convex">
+            <section data-transition="convex">
                 <h1>Actions</h1>
             </section>
-            <section>
+            <section data-transition="convex">
                 <p>Actions specify that something happened</p>
                 <p class="fragment fade-down">Actions are like instructions for workers in our "Library"</p>
             </section>
-            <section data-transition="fade">
+            <section data-transition="convex">
                 <pre>
                     <code>
                     {
@@ -212,7 +212,8 @@
             </section>
             <section data-background-image="assets/envelope-icon-open.png"
                      data-background-size="auto 90%"
-                     data-background-transition="fade" data-transition="fade">
+                     data-background-transition="fade"
+                     data-transition="convex">
                 <pre style="box-shadow: none;">
                     <code>
                     {
@@ -227,18 +228,19 @@
             </section>
             <section data-background-image="assets/envelope-icon-closed-labeled.png"
                      data-background-size="auto 70%"
-                     data-background-transition="zoom">
+                     data-background-transition="fade"
+                     data-transition="zoom">
             </section>
-            <section>
+            <section data-transition="convex">
                 <div style="display: inline"><img src="assets/envelope-icon-closed-labeled.png" width="270px"
                                                   style="border:none;"></div>
                 <div style="display: inline"><h1>=></h1></div>
                 <div style="display: inline"><img src="assets/librarian.jpg" width="270px" style="border:none;"></div>
             </section>
         </section>
-        <section>
-            <section><h1>Reducers</h1></section>
-            <section>
+        <section data-transition="convex">
+            <section data-transition="convex"><h1>Reducers</h1></section>
+            <section data-transition="convex">
                 <p>Reducers compute new state based on actions</p>
                 <div class="fragment fade-in">
                     <p>Reducers are the workers/staff in our "Library"</p>
@@ -248,7 +250,7 @@
                     Only part of the app that can "change" state
                 </aside>
             </section>
-            <section>
+            <section data-transition="convex">
                 <div style="display: flex">
                     <div style="float: left; width: 25%;">
                         <img class="fragment fade-right" data-fragment-index="1" src="assets/ordner-blau.jpg"
@@ -274,7 +276,7 @@
                 </pre>
                 <p class="fragment" data-fragment-index="3">They don't mutate the state. They create a new one!</p>
             </section>
-            <section>
+            <section data-transition="convex">
                 <!-- TODO picture of folder (of awesome stuff), copy machine and the librarian and folder with other color afterwards-->
                 <!-- Explain how reducers change the state without mutating it -->
                 <div style="display:flex;">
@@ -338,16 +340,16 @@
                 </pre>
             </section>-->
         </section>
-        <section>
-            <section>
+        <section data-transition="convex">
+            <section data-transition="convex">
                 <h1>Data Flow</h1>
             </section>
-            <section>
+            <section data-transition="convex">
                 <img src="assets/redux-flow.jpg">
             </section>
         </section>
-        <section>
-            <section>
+        <section data-transition="convex">
+            <section data-transition="convex">
                 <h1>Why Redux?</h1>
                 <ul>
                     <li>Easy to reason about data flow</li>
