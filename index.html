@@ -156,11 +156,20 @@
                         <li class="fragment fade-up" data-fragment-index="3">Changes are made with pure functions (called Reducers)</li>
                     </ul>
                 </div>
-                <div style="display: inline-block">
+                <div class="container">
+                    <div class="left">
                     <img class="fragment fade-in" data-fragment-index="1" src="assets/library_2.jpg" width="270" height="180"/>
-                    <img class="fragment fade-in" data-fragment-index="2" src="assets/read-book.jpg" width="180" height="180"/>
-                    <img class="fragment fade-in" data-fragment-index="3" src="assets/librarian.jpg" width="270" height="180"/>
-                </div>
+                    </div>
+                    <div class="middle">
+                        <img class="fragment fade-in" data-fragment-index="2" style="margin-bottom: 0px"  src="assets/read-book.jpg" width="180" height="180"/>
+                        <label class="fragment fade-in" data-fragment-index="2" style="font-size: 10px; margin-top: 0px;">https://commons.wikimedia.org/wiki/File:Reading-books.jpg</label>
+                    </div>
+                        <div class="right">
+                    <img class="fragment fade-in" style="margin-bottom: 0px;" data-fragment-index="3" src="assets/librarian.jpg" width="270" height="180"/>
+                    <label class="fragment fade-in" data-fragment-index="3" style="font-size: 10px; margin-top: 0px;">www.fahrradmonteur.de</label>
+                        </div>
+                    </div>
+
                 <aside class="notes">
                     <ul>
                         <li>Single Source of Truth => Sort of "Library" where all information is kept.</li>
@@ -251,19 +260,19 @@
                 </aside>
             </section>
             <section data-transition="convex">
-                <div style="display: flex">
-                    <div style="float: left; width: 25%;">
+                <div class="container">
+                    <div class="left" style="width: 25%;">
                         <img class="fragment fade-right" data-fragment-index="1" src="assets/ordner-blau.jpg"
                              height="200px" width="200px">
                     </div>
-                    <div style="display: inline-block; width: 50%;">
+                    <div class="middle" style="width: 50%;">
                         <p>Reducers need to know</p>
                         <ul style="margin-left: 60px">
                             <li class="fragment fade-up" data-fragment-index="1">The current state</li>
                             <li class="fragment fade-up" data-fragment-index="2">The action to carry out</li>
                         </ul>
                     </div>
-                    <div style="float: right; width: 25%;">
+                    <div class="right" style="width: 25%;">
                         <img class="fragment fade-left" data-fragment-index="2"
                              src="assets/envelope-icon-closed-labeled.png"
                              style="width: 60%; border: none; margin-top: 50px">
