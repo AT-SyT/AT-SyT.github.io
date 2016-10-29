@@ -153,22 +153,29 @@
                     <ul>
                         <li class="fragment fade-up" data-fragment-index="1">Single Source of Truth</li>
                         <li class="fragment fade-up" data-fragment-index="2">State is read only</li>
-                        <li class="fragment fade-up" data-fragment-index="3">Changes are made with pure functions (called Reducers)</li>
+                        <li class="fragment fade-up" data-fragment-index="3">Changes are made with pure functions
+                                                                             (called Reducers)
+                        </li>
                     </ul>
                 </div>
-                <div class="container">
-                    <div class="left">
-                    <img class="fragment fade-in" data-fragment-index="1" src="assets/library_2.jpg" width="270" height="180"/>
+                <div style="display: flex">
+                    <div style="order:1; width: 33%;">
+                        <img class="fragment fade-in" data-fragment-index="1" src="assets/library_2.jpg" width="270"
+                             height="180"/>
                     </div>
-                    <div class="middle">
-                        <img class="fragment fade-in" data-fragment-index="2" style="margin-bottom: 0px"  src="assets/read-book.jpg" width="180" height="180"/>
-                        <label class="fragment fade-in" data-fragment-index="2" style="font-size: 10px; margin-top: 0px;">https://commons.wikimedia.org/wiki/File:Reading-books.jpg</label>
+                    <div style="order:2; width: 33%;">
+                        <img class="fragment fade-in" data-fragment-index="2" style="margin-bottom: 0px"
+                             src="assets/read-book.jpg" width="180" height="180"/>
+                        <label class="fragment fade-in" data-fragment-index="2"
+                               style="font-size: 10px; margin-top: 0px;">https://commons.wikimedia.org/wiki/File:Reading-books.jpg</label>
                     </div>
-                        <div class="right">
-                    <img class="fragment fade-in" style="margin-bottom: 0px;" data-fragment-index="3" src="assets/librarian.jpg" width="270" height="180"/>
-                    <label class="fragment fade-in" data-fragment-index="3" style="font-size: 10px; margin-top: 0px;">www.fahrradmonteur.de</label>
-                        </div>
+                    <div style="order:3; width: 33%;">
+                        <img class="fragment fade-in" style="margin-bottom: 0px;" data-fragment-index="3"
+                             src="assets/librarian.jpg" width="270" height="180"/>
+                        <label class="fragment fade-in" data-fragment-index="3"
+                               style="font-size: 10px; margin-top: 0px;">www.fahrradmonteur.de</label>
                     </div>
+                </div>
 
                 <aside class="notes">
                     <ul>
@@ -261,18 +268,18 @@
             </section>
             <section data-transition="convex">
                 <div style="display: flex">
-                    <div style="float: left; width: 25%;">
+                    <div style="order:1; width: 25%;">
                         <img class="fragment fade-right" data-fragment-index="1" src="assets/ordner-blau.jpg"
                              height="200px" width="200px">
                     </div>
-                    <div style="display: inline-block; width: 50%;">
+                    <div style="order:2; width: 50%;">
                         <p>Reducers need to know</p>
                         <ul style="margin-left: 60px">
                             <li class="fragment fade-up" data-fragment-index="1">The current state</li>
                             <li class="fragment fade-up" data-fragment-index="2">The action to carry out</li>
                         </ul>
                     </div>
-                    <div style="float: right; width: 25%;">
+                    <div style="order:3; width: 25%;">
                         <img class="fragment fade-left" data-fragment-index="2"
                              src="assets/envelope-icon-closed-labeled.png"
                              style="width: 60%; border: none; margin-top: 50px">
